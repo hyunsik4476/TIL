@@ -1,3 +1,5 @@
+import random
+
 def dust_quality(dust):
     if dust > 150:
         print("매우나쁨")
@@ -8,5 +10,4 @@ def dust_quality(dust):
     else:
         print("좋음")
 
-dust_quality(30)
-dust_quality(100)
+dust_quality(random.choice(range(0,201)))
