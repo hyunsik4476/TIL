@@ -17,3 +17,7 @@ print('==================')
 strs = 'hello'
 strs_slicing = strs[::-1]
 print(strs_slicing, type(strs_slicing)) # olleh <class 'str'>
+print(strs[:10]) #왜?
+#print(strs[:10][7]) #인덱스에러
+print(strs[-4::]) #ello
+print(strs[:-3:]) #he
