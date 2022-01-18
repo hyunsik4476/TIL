@@ -84,5 +84,39 @@
     # 총합을 구해야 하지만 range(number) 의 경우 0 ~ number - 1 까지이므로 답이 틀림
     ```
 
-* 
+
+
+## 데이터
+
+* `.join()` 의 작동
+
+  * ```python
+    alps = ['a', 'b', 'c', 'd']
+    strs_1 = ''.join(alps)
+    
+    nums = [1, 2, 3, 4]
+    strs_2 = ''
+    
+    list_1 = []
+    
+    print(alps, strs_1) #['a', 'b', 'c', 'd'] abcd
+    
+    for num in nums:
+        strs_2 = strs_2.join(num)
+        print(strs_2)
+        # 처음 떠올린 방법
+        # 하나씩 추가하고 싶지만 정상작동 안함(반복가능한 객체도 아님)
+        # join 사용법 주의
+    
+        list_1.append(str(num)) #타입 항상 주의
+        strs_2 = ''.join(list_1)
+        print(strs_2)
+        # 리스트를 만들어서 추가
+        
+        strs_2 = strs_2 + '{0}'.format(num)
+        print(strs_2)
+        # 문자열 + 연산 사용
+    ```
+
+  * 
 
