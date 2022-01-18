@@ -1,12 +1,13 @@
-numbers = [
-82, 72, 38, 80, 69, 65, 68, 96, 22, 49, 67,
-51, 61, 63, 87, 66, 24, 80, 83, 71, 60, 64,
-52, 90, 60, 49, 31, 23, 99, 94, 11, 25, 24,
-]
+numbers = [1, 3, 2, 5, 4, 6, 7]
 tot = len(numbers)
 
 sorted_numbers = sorted(numbers)
+print(sorted_numbers)
+print(numbers)
 
+# sorted_numbers = numbers.sort()
+# print(sorted_numbers)
+# print(numbers)
 
 if tot % 2 == 0:
     print(sorted_numbers[tot//2 - 1], sorted_numbers[tot//2]) #tot//2 - 1 ???

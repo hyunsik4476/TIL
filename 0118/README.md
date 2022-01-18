@@ -118,5 +118,31 @@
         # 문자열 + 연산 사용
     ```
 
-  * 
+* `sorted(list)` 와 `.sort()` 의 차이?
+
+  * ```python
+    numbers = [1, 3, 2, 5, 4, 6, 7]
+    tot = len(numbers)
+    
+    sorted_numbers = sorted(numbers)
+    print(sorted_numbers) # 오름차순 정렬 작동됨
+    print(numbers) # numbers 그대로
+    ```
+
+  * ```python
+    numbers = [1, 3, 2, 5, 4, 6, 7]
+    tot = len(numbers)
+    
+    sorted_numbers = numbers.sort()
+    print(sorted_numbers) # None 출력
+    print(numbers) # numbers가 오름차순 정렬된 리스트로 바뀜
+    ```
+
+  * 함수와 메서드의 차이?
+
+  * `sorted()` 는 모든 이터러블을 받아들이는 반면,
+
+  * `.sort()` 는 리스트에게만 정의되는 메서드 ([참고링크](https://docs.python.org/ko/3/howto/sorting.html))
+
+  * 두 명령이 return 하는 값이 다른 건가?
 
