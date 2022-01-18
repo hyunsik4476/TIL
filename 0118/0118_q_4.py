@@ -1,7 +1,6 @@
 number = int(input())
-if number >= 0:
+if 1000 >= number >= 1:
     aliq_lists = [num for num in range(1, number + 1) if number % num == 0]
+    print(aliq_lists)
 else:
-    aliq_lists = [num for num in range(number - 1, 0) if number % num == 0]
-
-print(aliq_lists)
+    print('N은 1 이상 1000 이하의 정수입니다.')
