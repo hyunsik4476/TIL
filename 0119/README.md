@@ -94,6 +94,9 @@ def function_name(**kwargs): # 권장되는 기입 형태
 function_name('name': '홍길동', 'age': 999) 
 # 잘못된 용례(Invalid syntax)
 
+# function_name('name' = '홍길동', 'age' = 999) 
+# 잘못된 용례 2
+
 function_name(name = '홍길동', age = 999)
 # 바른 용례 (이 때 name 과 age는 식별자)
 
@@ -130,6 +133,31 @@ print(a) # 여전히 NameError
 * `Local`, `Enclosed`, `Global`, `Built-in` LEGB Rule
 
 ```python
+a = 'global a'
+b = 'global b'
+c = 'global c'
+
+def en_fn():
+    a = 'enclosed a'
+    b = 'enclosed b'
+
+    def lo_fn():
+        a = 'local a'
+        print(a, b, c)
+
+    lo_fn()
+
+    print(a, b, c)
+    
+
+en_fn()
+
+print(a, b, c)
+
+# 출력: 변수의 탐색 순서에 주의
+# local a enclosed b global c
+# enclosed a enclosed b global c
+# global a global b global c
 ```
 
 * `global` 문
