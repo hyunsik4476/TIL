@@ -2,7 +2,7 @@
 
 > 20220119
 
-## Abstraction (추상화)
+## 추상화 (Abstraction)
 
 
 
@@ -70,10 +70,11 @@ def function_name_2(parameter_1, *args, parameter_2):
     # code block
     return print(parameter_1, parameter_2, args)
 
-# function_name_2('B', 'A') # 작동 안함
-# function_name_2('B', 'C', 'D' ,'A') # 작동 안함
-function_name_2('B', 'C', 'D' , parameter_2 = 'A') # 작동 함 >>> B A ('C, 'D')
-function_name_2(parameter_2 = 'A', parameter_1 = 'B') # 작동 함 (왜???) >>> B A ()
+function_name_2('B', 'C', 'D' ,'A') # 작동 안함
+function_name_2('B', 'C', 'D' , parameter_2 = 'A')
+# 작동 함 >>> B A ('C, 'D')
+function_name_2(parameter_2 = 'A', parameter_1 = 'B')
+# 작동 함 (왜???) >>> B A ()
 
 # ============================================================== #
 
@@ -197,4 +198,132 @@ print(a) # 'spam'
 # 다만, 그 외에는 가급적 사용하지 않는 것을 권장 (블랙박스의 rule을 깨는 것)
 # return 해서 받아서 쓰는게..?
 ```
+
+
+
+## 함수의 문서화
+
+* Documentation String
+* 주피터 노트북에서 `Shift` + `Tab` 으로 확인 가능
+
+### 이름짓기
+
+* 상수 이름은 전체 대문자
+* 클래스, 예외의 이름은 첫 글자 대문자
+* 이외 나머지 소문자 + `_`
+
+
+
+## 함수 응용
+
+* `map(function, iterable)`
+
+  * 순회 가능한 데이터구조의 모든 요소에 함수 적용하고 map object를 반환
+
+  * ```python
+    input_value = map(int, input().split())
+    print(list(input_value))
+    <<< 20 20
+    >>> [20, 20] # 정수형
+    ```
+
+* `filter(function, iterable)`
+
+  * 순회 가능한 모든 요소에 함수 적용, 결과가 True인 것들을 filter object로 반환
+
+* `zip(*iterables)`
+
+  * 복수의 iterable 을 모아 튜플을 원소로 하는 zip object 반환
+
+* `lambda [parameter] : <표현식>`
+
+  * 일시적으로 사용할 함수를 정의 가능
+
+  * ```python
+    # 람다함수 w/ 필터
+    def odd(n):
+        return n % 2 # ???
+    
+    print(list(filter(odd, range(5))))
+    
+    print(list(filter(lambda n: n % 2, range(5))))
+    
+    print(list(filter(lambda n: n  if n % 2 == 1 else None, range(5))))
+    ```
+
+* 재귀 함수
+
+  * 자기 자신을 호출하는 함수
+
+  * 한 개 이상의 종료되는 상황(base case)가 존재하고, 수렴하도록 작성
+
+  * ```python
+    # 재귀함수
+    def factorial(n):
+        if n == 0 or n == 1:
+            return 1
+        else:
+            return n * factorial(n-1) 
+            
+    # 팩토리얼 함수 안에서 팩토리얼 함수 호출
+    # 함수는 return 값이 정해져야 종료될 수 있으므로
+    # n, n - 1, ... , 1 로 수렴해 base case에 도달 (factorial(1))
+    ```
+
+  * `stack overflow` 메모리 스택이 넘치게 되면 프로그램이 멈춤
+
+  * 파이썬의 최대 재귀 깊이는 1,000번, 이를 넘어가면 recursion error 발생
+
+  * 왜 쓰는가? >>> 알고리즘 상 자연스러운 경우/ 변수 숫자 감소
+
+
+
+# 모듈
+
+## 모듈과 패키지
+
+* `모듈` 특정 기능을 하는 코드를 파이썬 파일 단위로 작성한 것
+* `패키지` 여러 모듈의 집합
+
+
+
+## 모듈 불러오기
+
+* ```python
+  import pprint
+  pprint.pprint('a')
+  ```
+
+* ```python
+  from pprint import pprint # from 모듈명 import 함수명
+  pprint('a')
+  ```
+
+* ```python
+  from pprint import * # 모듈명 내의 모든 함수
+  pprint('a')
+  ```
+
+
+
+## 파이썬 패키지 관리자 (pip)
+
+* ```bash
+  $ pip freeze > requirements.txt
+  $ pip install -r requirements.txt
+  ```
+
+
+
+## 가상환경
+
+* `venv` 가상환경 모듈
+
+  * ``` bash
+    $ python -m venv venv # venv라는 이름의 가상환경 폴더 생성
+    $ pip list # 아직 내 컴퓨터
+    
+    $ source venv/Scripts/activate # 가상환경 활성
+    $ pip list # venv 환경에 깔린 pip 리스트 보여줌
+    ```
 
