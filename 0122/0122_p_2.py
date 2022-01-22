@@ -6,4 +6,9 @@ for i in range(1, num + 1):
 
 lst = [i for i in range(1, num + 1) if not num % i]
 
-print(pnum for pnum in lst)
+print(*lst, sep = ', ')
+lst_2 = ['a', 'b', 'c', 'd', 'e']
+for alp in lst_2:
+    print(alp, end = ' ')
+# for alp in *lst_2:
+#     print(alp, end = ' ')
