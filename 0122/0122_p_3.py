@@ -9,4 +9,4 @@ for num in range(1, inum + 1):
     print(strs)
 
 for alp in strs:
-    print(alp)
+    print(alp) # 공백문자도 alp 하나로 취급돼서 10 줄 나옴
