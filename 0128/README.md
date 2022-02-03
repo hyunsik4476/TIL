@@ -1,4 +1,11 @@
-# 객체지향 실습
+# 관통PJT02
 
-> 20220127
+> 20220120
 
+## 람다식을 이용한 정렬 조건 만들기
+
+```python
+b = sorted(a.items(), key = lambda x: x[key], reverse= True)
+```
+
+* 
