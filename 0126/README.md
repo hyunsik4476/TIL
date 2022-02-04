@@ -252,7 +252,7 @@
     
     class Student(Person):    
         def __init__(self, A, B, C):
-            super().__init__(self, A, B) # Person 의 것 가져오기
+            super().__init__(A, B) # Person 의 것 가져오기
             self.C = C
     ```
 
