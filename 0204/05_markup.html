@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>건강설문</title>
+</head>
+<body>
+  <header>
+    <a href="">
+      <img src="" alt="main img">
+    </a>
+    <h1>건강설문</h1>
+  </header>
+  <section>
+    <div>
+      <label for="name">이름을 기재해주세요</label><br>
+      <input type="name" id="name" autofocus>
+    </div>
+    <hr>
+    <div>
+      <label for="hometown">지역을 선택해주세요.</label><br>
+      <select name="hometwon" id="hometown">
+        <option value="">선택</option>
+        <option value="서울">서울</option>
+        <option value="경기">경기</option>
+        <option value="강원">강원</option>
+        <option value="경북">경북</option>
+      </select>
+    </div>
+    <hr>
+    <div>
+      <p>오늘의 체온을 선택해주세요.</p>
+      <input type="radio" name="temp" id="under37" value="under37">
+      <label for="under37">37도 미만</label><br>
+      <input type="radio" name="temp" id="over37" value="over37">
+      <label for="over37">37도 이상</label>
+    </div>
+    <hr>
+    <div>
+      <input type="submit" value="제출">
+    </div>
+  </section>
+  <footer>
+    Google 설문지를 통해 비밀번호를 제출하지 마시오.
+  </footer>
+</body>
+</html>

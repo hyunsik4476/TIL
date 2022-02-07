@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    .flex-container {
+      width: 50%;
+      height: 300px;
+      margin: auto;
+      border: 3px solid rgb(109, 109, 109);
+      background-color: rgb(219, 179, 235);
+    }
+
+    .flex-item {
+      display: flex;
+      width: 30px;
+      height: 30px;
+      margin: 1px;
+      border: 2px solid rgb(255, 255, 255);
+      border-radius: 3px;
+      background-color: rgb(129, 40, 151);
+      justify-content: center;
+      align-items: center;
+      font-size: 16px;
+      font-family: sans-serif;
+      font-weight: bold;
+      color: white;
+    }
+
+    .flex-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .big-box {
+      display: flex;
+      position: absolute;
+      top: 0;
+      right: 25%;
+      justify-content: end;
+      align-items: flex-end;
+      margin: 3px;
+      padding: 3px;
+      width: 120px;
+      height: 120px;
+      border: 10px solid rgba(255, 255, 255, 0.603);
+      font-size: 20px;
+      font-family: sans-serif;
+      font-weight: bold;
+      color: white;
+    }
+
+    .clearfix::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+  </style>
+</head>
+<body>
+  <div style="position: relative;">
+    <div class="big-box">
+      BOX<span style="font-size: 10px; line-height: 17px;">nothing in</span>
+    </div>
+    <div class="flex-container">
+      <div class="flex-item">
+        H
+      </div>
+      <div class="flex-item">
+        E
+      </div>
+      <p class="flex-item">L</p>
+      <div class="flex-item">
+        L
+      </div>
+      <div class="flex-item">
+        O
+      </div>
+      <p class="flex-item">!</p>
+    </div>
+  </div>
+</body>
+</html>
