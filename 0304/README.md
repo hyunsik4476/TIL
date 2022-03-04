@@ -84,3 +84,111 @@
 
 * path : views.~ 로 호출된 함수에 request 단에 HttpRequest를 넘겨줌
 * 이 HttpRequest 는 render 에 의해 리턴됨
+
+
+
+# pjt 04
+
+## 메인 페이지
+
+### 프로젝트 생성
+
+* pjt의 urls -> app의 urls -> views -> templates
+
+* 고민 1 앱에서 관리하는 url 만들기
+
+  * ```python
+    # 프로젝트 내 urls 파일
+    from django.contrib import admin
+    from django.urls import path, include
+    
+    urlpatterns = [
+        path('admin/', admin.site.urls),
+        path('movies/', include('movies.urls'))
+    ]
+    ```
+
+  * ```python
+    # 앱 내 urls 파일
+    from django.urls import path
+    from . import views
+    
+    app_name = 'movies'
+    
+    urlpatterns = [
+        path('', views.index, name='index'),
+        path('recommendations/', views.recommendations, name='recommendations')
+    ]
+    ```
+
+  * 가장 큰 차이점은 `from . import views`
+
+* 고민 2 이름공간을 갖는 템플릿 폴더 만들기
+
+  * `return render(request, 'movies/index.html')`
+  * 약속된 경로 ~templates/ 이후의 경로들을 적어줘야함
+
+
+
+### 베이스페이지
+
+* settings.py 에서 등록하는거 잊지 말기
+
+* 고민 1 베이스의 구조를 어떻게 가져갈 것인가?
+  * = 공통으로 보이는 것은 모두 베이스 페이지에 구현
+  * nav, footer 등
+  * 페이지마다 내용이 다르거나 필요성이 다른 경우(header, section 등)
+    상속받은 페이지 내에서 구현
+* 고민 2 상속의 구조
+  * 상속의 경우 베이스는 block만 필요, 자식 페이지는 extends가 최상단에 필요
+
+
+
+### 상속받은 메인 페이지 구현하기
+
+* 이미 베이스페이지의 블럭을 container 요소로 감싼 상태
+  * 메인 페이지에서는 row 부터 시작
+  * static 경로 사용을 위해 extends 하단에 `{% load static %}` 추가
+    * static 폴더의 경로는 /myapp/static
+
+* for 로 카드 구현하기
+  * 아직 못함
+
+
+
+## 추천 페이지
+
+### Views
+
+* requests 의 사용법 다시 공부
+* 입력받은 파일을 .json() <<< 괄호 자꾸 빼먹는데 조심
+* random.choice를 통해 리스트에서 하나의 딕셔너리 빼내기
+
+
+
+* 처음엔 딕셔너리에서 각 값을 빼내서 context에 넣었음
+
+* 딕셔너리 자체를 context에 넣고 django-html에서 dict.key 로 접근하는게 가능하다는 걸 알게됨
+
+  * ```python
+    context = {
+            'picked' : picked,
+            'title': title,
+            'overview': overview,
+            'poster_path': poster_path,
+            'id': id,
+            'date': date,
+        }
+    ```
+
+
+
+### 상속받아 구현하기
+
+* Views에서 딕셔너리를 전달받아 필요한 정보를 사용하기
+* header 파트가 간략화됨
+* 현재 문제점 : 부트스트랩 사용법이 잘 기억나지 않음, 지난 프로젝트랑 실습 시간날때 한 번씩 둘러보기
+* 딕셔너리 자체를 context에 넣고 django-html에서 dict.key 로 접근하는게 가능하다는 걸 알게됨
+  * `{{ picked.vote_average|floatformat }}`
+* url 접근법 : 
+  * `<img src="https://image.tmdb.org/t/p/w500{{ poster_path }}" ... >`
