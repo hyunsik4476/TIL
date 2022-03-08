@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block section %}
+<form action="{% url 'articles:create' %}" method="GET">
+  <label for="title">title</label>
+  <input type="text" id="title" name="title">
+  <br>
+  <label for="content">content</label>
+  <textarea name="content" id="content" cols="30" rows="10"></textarea>
+  <hr>
+  <input type="submit">
+</form>
+{% endblock section %}

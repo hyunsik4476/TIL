@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block section %}
+<h1>내용 상세</h1>
+<h2> {{ article.title }} </h2>
+<h3> {{ article.content }}  </h3>
+<hr>
+<a href="{% url 'articles:delete' article.pk %}">글 삭제</a>
+<a href="{% url 'articles:edit' article.pk %}">글 수정</a>
+{% endblock section %}
