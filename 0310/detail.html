@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block body %}
+  <h1>DETAIL</h1>
+  <hr>
+  <h3>
+    {{ article.title }}
+  </h3>
+  <br>
+  <p>
+    {{ article.content }}
+  </p>
+  <hr>
+  <div>
+    <p class="text-end">written at: {{ article.created_at|date:'Y/M/d g:i:s A' }}</p>
+    <p class="text-end">last update: {{ article.updated_at|date:'Y/M/d  g:i:s A' }}</p>
+  </div>
+  <hr>
+  <div class="text-end">
+    <a href="{% url 'articles:edit' article.pk %}">EDIT</a>
+    <a href="{% url 'articles:delete' article.pk %}">DELETE</a>
+    <a href="{% url 'articles:index' %}">BACK</a>
+  </div>
+{% endblock body %}
