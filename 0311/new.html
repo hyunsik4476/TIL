@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block body %}
+  <header>
+    <h1>NEW</h1>
+  </header>
+  <hr>
+  <section>
+    <form action="{% url 'movies:create' %}" method="POST">
+      {% csrf_token %}
+      <label for="title" class="form-label">TITLE: </label>
+      <input class="form-control" type="text" id="title" name="title">
+      <label for="audience" class="form-label">AUDIENCE: </label>
+      <input class="form-control" type="number" min="0" id="audience" name="audience">
+      <label for="release_date" class="form-label">RELEASE_DATE: </label>
+      <input class="form-control" type="date" id="release_date" name="release_date">
+      <label for="genre" class="form-label">GENRE: </label>
+      <select class="form-control" name="genre" id="genre">
+        {% for genre in genres %}
+          <option value="{{ genre }}">{{ genre }}</option>
+        {% endfor %}
+        {% comment %} <option value="코미디">코미디</option>
+        <option value="로맨스">로맨스</option>
+        <option value="공포">공포</option> {% endcomment %}
+      </select>
+      <label for="score" class="form-label">SCORE: </label>
+      <input class="form-control" type="number" min="0" max="5" step="0.1" id="score" name="score">
+      <label for="poster_url" class="form-label">POSTER_URL: </label>
+      <input class="form-control" type="text" id="poster_url" name="poster_url">
+      <label for="description" class="form-label">DESCRIPTION: </label>
+      <input class="form-control" type="text" id="description" name="description">
+      <br>
+      <button type="submit">제출</button>
+    </form>
+  </section>
+  <hr>
+  <footer>
+    <button type="button"><a href="{% url 'movies:index' %}">BACK</a></button>  
+  </footer>
+{% endblock body %}

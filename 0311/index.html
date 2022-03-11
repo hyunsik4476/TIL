@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block body %}
+  <header>
+    <h1>INDEX</h1>
+  </header>
+  <section>
+    <div>
+      <button type="button"><a href="{% url 'movies:new' %}">NEW</a></button>
+    </div>
+    <hr>
+    {% for movie in movies %}
+      <div style="cursor: pointer;" onclick="location.href='{% url 'movies:detail' movie.pk %}';">
+        <a href="{% url 'movies:detail' movie.pk %}">
+          <h3>{{ movie.title }} 
+            {% comment %} {% if movie.score >= 3 %}
+              <span class="badge bg-primary fs-5 px-1 py-0">{{ movie.score }}</span>
+            {% else %}
+              <span class="badge bg-secondary fs-5 px-1 py-0">{{ movie.score }}</span>
+            {% endif %} {% endcomment %}            
+            <span class="badge {% if movie.score >= 3 %}bg-primary{% else %}bg-secondary{% endif %} fs-5 px-1 py-0 fw-normal">{{ movie.score }}</span>
+          </h3>
+        </a>
+        <p>{{ movie.description|truncatechars:50 }}</p>
+      </div>
+      <hr>
+    {% endfor %}
+  </section>
+{% endblock body %}

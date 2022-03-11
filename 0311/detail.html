@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block body %}
+  <header>
+    <h1>DETAIL</h1>
+  </header>
+  <hr>
+  <section class="row">
+    <div class="col-6">
+      <img class="w-100" src="{{ movie.poster_url }}" alt="{{ movie.title }}.img" srcset="">
+    </div>
+    <article class="col-6">
+      <h3>{{ movie.title }}</h3>
+      <p>{{ movie.audience }}</p>
+      <p>{{ movie.release_date }}</p>
+      <p>{{ movie.genre }}</p>
+      <p>{{ movie.score }}</p>
+      <p>{{ movie.description }}</p>
+    </article>
+  </section>
+  <hr>
+  <footer>
+    <div>
+      <form action="{% url 'movies:edit' movie.pk %}" method="POST" style="display: inline;">
+        {% csrf_token %}
+        <button type="submit">수정</button>
+      </form>
+      <form action="{% url 'movies:delete' movie.pk %}" method="POST" style="display: inline;">
+        {% csrf_token %}
+        <button type="submit">삭제</button>
+      </form>
+    </div>
+    {% comment %} <div>
+      <a href="{% url 'movies:edit' movie.pk %}">EDIT</a>
+      <a href="{% url 'movies:delete' movie.pk %}">DELETE</a>
+    </div> {% endcomment %}
+    <div>
+      <button type="button"><a href="{% url 'movies:index' %}">BACK</a></button>      
+    </div>
+  </footer>
+{% endblock body %}
