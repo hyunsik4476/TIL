@@ -86,7 +86,7 @@ class Article(models.Model):
 
 * pip install ipython django-extensions
 
-* INSTALLED_APP 에 'django_extensions' 등록 ( 언더바임! )
+* INSTALLED_APPS 에 'django_extensions' 등록 ( 언더바임! )
 
 * python manage.py shell_plus 로 shell 실행
 
