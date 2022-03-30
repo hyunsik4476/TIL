@@ -148,3 +148,22 @@
 
 [DB/SQL](./0314/README.md)
 
+## 2022/03/16
+
+[Tree](./0316/README.md)
+
+## 2022/03/21
+
+[Computational Thinking](./0321/README.md)
+
+## 2022/03/27
+
+[비트연산](./0327/README.md)
+
+## 2022/03/28
+
+[순열, 조합](./0328/README.md)
+
+## 2022/03/30
+
+[정렬](./0330/README.md)
