@@ -1,43 +1,3 @@
-# 0421
-
-## 정리
-
-```python
-# serializers.py
-from rest_framework import serializers
-from .models import Artist, Music
-
-
-class MusicListSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = Music
-        fields = ('id', 'title',)
-
-class MusicSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = Music
-        fields = ('__all__')
-        read_only_fields = ('artist',)
-
-class ArtistListSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = Artist
-        fields = ('__all__')
-
-class ArtistSerializer(serializers.ModelSerializer):
-    music_set = MusicSerializer(many=True, read_only=True)
-    music_count = serializers.IntegerField(source='music_set.count', read_only=True)
-
-    class Meta:
-        model = Artist
-        fields = ('__all__')
-```
-
-```python
-# views.py
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
@@ -103,19 +63,3 @@ def music_detail(request, music_pk):
         if serializer.is_valid(raise_exception=True):
             serializer.save()
             return Response(serializer.data)
-```
-
-## 1:N 2가지 방법
-
-```python
-class ArticleSerializer(serializers.ModelSerializer):
-    # comment_set = serializers.PrimaryKeyRelatedField(many=True, read_only=True)
-    comment_set = CommentSerializer(many=True, read_only=True)
-    comment_count = serializers.IntegerField(source='comment_set.count', read_only=True)
-
-    class Meta:
-        model = Article
-        fields = ('__all__')
-
-```
-
