@@ -219,3 +219,7 @@
 ## 2022/04/22
 
 [REST API / 쿼리](0422/README.md)
+
+## 2022/04/24
+
+[REST API / pjt](0424/README.md)
