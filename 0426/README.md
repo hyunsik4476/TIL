@@ -251,5 +251,7 @@ console.log(result)
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
+const lotto = _.sampleSize(_.range(1, 46), 6)
+console.log(...lotto)
 ```
 
