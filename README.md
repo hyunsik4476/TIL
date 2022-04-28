@@ -231,3 +231,11 @@
 ## 2022/04/26
 
 [JavaScript Intro 2](0426/README.md)
+
+## 2022/04/27
+
+[JavaScript event](0427/README.md)
+
+## 2022/04/28
+
+[JavaScript event 2](0428/README.md)
