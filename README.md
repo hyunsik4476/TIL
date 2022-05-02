@@ -239,3 +239,7 @@
 ## 2022/04/28
 
 [JavaScript event 2](0428/README.md)
+
+## 2022/05/02
+
+[JavaScript AJAX](0502/README.md)
