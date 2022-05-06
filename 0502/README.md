@@ -138,7 +138,7 @@
   <script>
   const responsePromise = axios.get(URL)
   responsePromise
-  	.then(res => console.log(res.data))
+  	.then(res => res.data)
   	// .then(function (todo) {todo.title})
   	.then(todo => todo.title)
   	// todo 는 전 단계 체인의 결과값인 res.data를 받음
